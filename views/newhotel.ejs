@@ -1,0 +1,38 @@
+<%- include('header') -%>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+        <figure class="text-center">
+            <h1>Új hotel regisztrálása</h1>
+        </figure>
+    <form method="POST">
+        <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Név</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="address" class="col-sm-2 col-form-label">Cím</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="address" name="address">
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+
+        <button type="submit" class="btn btn-dark">OK</button>
+
+        </div>
+    </form>
+
+
+    <div class="d-grid justify-content-md-end">
+        <a href="/" class="btn btn-outline-dark" type="button">Vissza</a>
+    </div>
+    
+</div>
+
+
+
+<%- include ('footer') -%>

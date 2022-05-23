@@ -1,0 +1,53 @@
+<%- include('header') -%>
+
+<div class="d-grid col-6 mx-auto">
+    <figure class="text-center">
+        <h1>Macska adatainak módosítása, törlése</h1>
+    </figure>
+    <form method="POST">
+        <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label" >Név</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name ="name" value="<%= cica.name %>">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="colour" class="col-sm-2 col-form-label">Szín</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="colour" name ="colour" value="<%= cica.colour%>">
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="hotel" class="col-sm-2 col-form-label">Hotel</label>
+            <div class="col-sm-10">
+                <select id="hotel" name="hotel">
+                    <% for(let i=0; i<hotels.length; i++){ const hotel =hotels[i]; %>
+                            <option value="<%=hotel._id%>" class="form-control"><%=hotel.name%></option>
+                    <%}%>
+                </select>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="date" class="col-sm-2 col-form-label">Dátum</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" id="date" name= "date">
+            </div>
+        </div>
+        <div class="d-grid mb-3 col-6 mx-auto">
+            <button type="submit"  class="btn btn-dark">Módosítás</button>
+        </div>
+
+        <div class="d-grid mb-3 justify-content-md-end">
+            <a href="/cica/del/<%= cica._id %>" class="btn btn-dark">Törlés</a>
+        </div>
+
+        <div class="d-grid justify-content-md-end">
+            <a href="/cicak" class="btn btn-outline-dark" type="button">Vissza</a>
+        </div>
+    </form>
+</div>
+
+<%- include ('footer')-%>

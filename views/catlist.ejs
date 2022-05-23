@@ -1,0 +1,62 @@
+<%- include('header') %>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <form method="POST">
+            <div class="mb-3 row">
+                <div class="col-auto">
+                    <label for="name" class="label">Név:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="col-auto">
+                    <label for="colour" class="label">Szín: </label>
+                    <input type="text" class="form-control" id="colour" name="colour">
+                </div>
+
+                <div class="col-auto">
+                    <label for="id" class="label">Azonosító:</label>
+                    <input type="text" class="form-control" id="id" name="id">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-dark">Keresés</button>
+                </div>
+            </div>
+
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Azonosító</th>
+                <th scope="col">Név</th>
+                <th scope="col">Szín</th>
+                <th scope="col">Hotel</th>
+                <th scope="col" >Regisztráció dátuma</th>
+                <th scope="col"></th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+                <% for(let i=0; i<cicak.length; i++){ const cica =cicak[i]; %>
+                    <tr>
+                        <td><%= cica._id %></td>
+                        <td><%= cica.name %></td>
+                        <td><%= cica.colour %></td>
+                        <td><%= cica._hotel? cica._hotel.name: "-" %></td>
+                        <td><%= cica.date %></td>
+                        <td> <a href="/cica/edit/<%= cica._id %>" class="btn btn-outline-dark" type="button">Módosítás</a></td>
+                        
+                    </tr>
+    
+                    <%}%>
+
+            </tbody>
+        </table>
+        <div class="d-grid justify-content-md-end">
+            <a href="/" class="btn btn-outline-dark" type="button">Vissza</a>
+        </div>
+
+<%- include ('footer')-%>

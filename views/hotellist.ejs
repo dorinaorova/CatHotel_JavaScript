@@ -1,0 +1,35 @@
+<%- include('header') -%>
+    <figure class="text-center">
+        <h1>Hotelek listázása</h1>
+    </figure>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Azonosító</th>
+                <th scope="col">Név</th>
+                <th scope="col">Cím</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i<hotels.length; i++){ const hotel =hotels[i]; %>
+                <tr>
+                    <td><%= hotel._id %></td>
+                    <td><%= hotel.name %></td>
+                    <td><%= hotel.address %></td>
+                    <td> <a href="/hotel/edit/<%= hotel._id %>" class="btn btn-outline-dark" type="button">Módosítás</a></td>
+                </tr>
+
+                <%}%>
+
+            </tbody>
+        </table>
+
+        <div class="d-grid justify-content-md-end">
+            <a href="/" class="btn btn-outline-dark" type="button">Vissza</a>
+        </div>
+    </div>
+
+
+<%- include ('footer')-%>
